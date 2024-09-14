@@ -29,7 +29,7 @@ Browse to `http://localhost:8090` and with any luck at all, you'll see:
 To start editing, find
 
 ```
-./app/index.ejs
+./pb_hooks/pages/index.ejs
 ```
 
 Changes appear immediately on the next refresh.

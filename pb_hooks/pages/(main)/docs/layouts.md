@@ -9,7 +9,7 @@ A layout in PocketPages is an EJS template file named `+layout.ejs`. Layouts are
 ### Example Directory Structure
 
 ```plaintext
-app/
+pb_hooks/pages/
   +layout.ejs
   products/
   +layout.ejs
@@ -98,7 +98,3 @@ In layouts, the `data` object from the `+load.js` file at the leaf level (e.g., 
 ### When Layouts are Not Applied
 
 Layouts are only applied to leaf EJS files that return HTML content. If an EJS file returns a JSON response, the layouts will not be executed. This ensures that layouts are used only for rendering HTML pages, keeping API responses clean and efficient.
-
-## Summary
-
-PocketPages layouts allow you to create consistent and reusable page structures by defining `+layout.ejs` files at various levels of your directory structure. Layouts are applied in a bottom-up order, with each higher-level layout wrapping the content of the child layout. The `slot` variable is used to place the interior content within the layout, and multiple slots can be defined using `<!-- slot:name -->` section delimiters. Leaf `+load.js` data is available in layouts, but layout-level `+load.js` data is not. Layouts are only applied to EJS files that return HTML content, ensuring that your API responses remain unaffected by the layout system.

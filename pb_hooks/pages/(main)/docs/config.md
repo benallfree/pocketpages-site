@@ -1,9 +1,10 @@
 # Custom Configuration with `+config.js`
 
-In the `app/` root, you can create a `+config.js` file to define custom configuration options for your application. This file allows you to control how files are processed within your app, particularly when using preprocessors like EJS.
+In the `pb_hooks/pages/` root, you can create a `+config.js` file to define custom configuration options for your application. This file allows you to control how files are processed within your app, particularly when using preprocessors like EJS.
 
 ```
-app/
+pb_hooks/
+  pages/
     +config.js
 ```
 

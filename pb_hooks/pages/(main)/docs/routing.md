@@ -23,30 +23,31 @@ PocketPages supports file-based routing, allowing you to create a clean and intu
 
 ## Understanding File-Based Routing
 
-File-based routing means that the URLs in your application are automatically determined by the file and folder structure within the `app/` directory. Each `.ejs` file corresponds to a unique route, and the nested folders reflect URL paths.
+File-based routing means that the URLs in your application are automatically determined by the file and folder structure within the `pb_hooks/pages/` directory. Each `.ejs` file corresponds to a unique route, and the nested folders reflect URL paths.
 
 ### Basic Example
 
 Consider the following directory structure:
 
 ```
-app/
-  about.ejs
-  contact.ejs
-  index.ejs
-  products/
-    details.ejs
+pb_hooks/
+  pages/
+    about.ejs
+    contact.ejs
     index.ejs
-    reviews/
+    products/
+      details.ejs
       index.ejs
-      latest.ejs
+      reviews/
+        index.ejs
+        latest.ejs
 ```
 
 ### How the Routing Works
 
 - **Root-Level Routing**:
 
-  - `index.ejs` at the root level (`app/index.ejs`) is served at the root URL `/`.
+  - `index.ejs` at the root level (`pb_hooks/pages/index.ejs`) is served at the root URL `/`.
   - Other root-level `.ejs` files like `about.ejs` and `contact.ejs` are served at `/about` and `/contact`, respectively.
 
 - **Nested Routing**:
@@ -64,8 +65,8 @@ app/
 
 As mentioned, `index.ejs` files have a special role:
 
-- **Default Route Handling**: If a user visits a path like `/products` and there is an `index.ejs` file within that folder (`app/products/index.ejs`), this file will be served without the need for specifying `/products/index` in the URL.
-- **Root Page**: The `index.ejs` at the root of `app/` serves as the homepage (`/`).
+- **Default Route Handling**: If a user visits a path like `/products` and there is an `index.ejs` file within that folder (`pb_hooks/pages/products/index.ejs`), this file will be served without the need for specifying `/products/index` in the URL.
+- **Root Page**: The `index.ejs` at the root of `pb_hooks/pages/` serves as the homepage (`/`).
 
 ### Example Directory and Routes
 
@@ -73,19 +74,19 @@ Let’s break down the example directory structure with corresponding routes:
 
 - **Root Level**
 
-  - `app/index.ejs` -> `/`
-  - `app/about.ejs` -> `/about`
-  - `app/contact.ejs` -> `/contact`
+  - `pb_hooks/pages/index.ejs` -> `/`
+  - `pb_hooks/pages/about.ejs` -> `/about`
+  - `pb_hooks/pages/contact.ejs` -> `/contact`
 
 - **Products**
-  - `app/products/index.ejs` -> `/products`
-  - `app/products/details.ejs` -> `/products/details`
-  - `app/products/reviews/index.ejs` -> `/products/reviews`
-  - `app/products/reviews/latest.ejs` -> `/products/reviews/latest`
+  - `pb_hooks/pages/products/index.ejs` -> `/products`
+  - `pb_hooks/pages/products/details.ejs` -> `/products/details`
+  - `pb_hooks/pages/products/reviews/index.ejs` -> `/products/reviews`
+  - `pb_hooks/pages/products/reviews/latest.ejs` -> `/products/reviews/latest`
 
 ## Tips for Structuring Your Routes
 
-1. **Keep It Organized**: Reflect the logical structure of your application within your directory layout. For example, if you have sections of your site dedicated to products, services, and contact information, create corresponding folders in `app/`.
+1. **Keep It Organized**: Reflect the logical structure of your application within your directory layout. For example, if you have sections of your site dedicated to products, services, and contact information, create corresponding folders in `pb_hooks/pages/`.
 
 2. **Use `index.ejs` for Default Pages**: Utilize `index.ejs` within any folder to create a default route for that path. This helps simplify URLs, making them more user-friendly.
 
@@ -119,32 +120,33 @@ In PocketPages, any route endpoint that resolves to an `index` (of any extension
 
 ### Example Scenario
 
-- **Without Trailing Slash**: If you navigate to `/foo`, which corresponds to `/app/foo/index.ejs`, the browser might try to load sibling resources with absolute paths, like `/foo/bar.ejs`. This can cause issues if you're relying on relative paths in your EJS templates.
+- **Without Trailing Slash**: If you navigate to `/foo`, which corresponds to `/pb_hooks/pages/foo/index.ejs`, the browser might try to load sibling resources with absolute paths, like `/foo/bar.ejs`. This can cause issues if you're relying on relative paths in your EJS templates.
 
-- **With Trailing Slash**: When `/app/foo/index.ejs` is accessed, it will automatically redirect to `/foo/`. This allows you to load sibling files like `/app/foo/bar.ejs` or resources such as `/app/foo/image.png` using relative paths directly from `/foo/index.ejs`.
+- **With Trailing Slash**: When `/pb_hooks/pages/foo/index.ejs` is accessed, it will automatically redirect to `/foo/`. This allows you to load sibling files like `/pb_hooks/pages/foo/bar.ejs` or resources such as `/pb_hooks/pages/foo/image.png` using relative paths directly from `/foo/index.ejs`.
 
 ### Why This Matters
 
 This trailing slash behavior is crucial for maintaining consistent and predictable file loading. For example:
 
-- **EJS Template**: If `/app/foo/index.ejs` includes an image file, you can reference it with a relative path:
+- **EJS Template**: If `/pb_hooks/pages/foo/index.ejs` includes an image file, you can reference it with a relative path:
 
   ```html
   <img src="image.png" />
   ```
 
-- **Expected Behavior**: With the redirect to `/foo/`, this relative path correctly resolves to `/app/foo/image.png`, simplifying resource management.
+- **Expected Behavior**: With the redirect to `/foo/`, this relative path correctly resolves to `/pb_hooks/pages/foo/image.png`, simplifying resource management.
 
 ### Practical Example
 
-Consider the following files in your `app/` directory:
+Consider the following files in your `pb_hooks/pages/` directory:
 
 ```
-app/
-  foo/
-    index.ejs
-    bar.ejs
-    image.png
+pb_hooks/
+  pages/
+    foo/
+      index.ejs
+      bar.ejs
+      image.png
 ```
 
 When you visit `/foo`, it will redirect to `/foo/`. As a result:
@@ -154,13 +156,3 @@ When you visit `/foo`, it will redirect to `/foo/`. As a result:
 - Sibling files like `bar.ejs` can be accessed via `/foo/bar`.
 
 This behavior ensures that your URLs remain clean and logical while maintaining the ability to use relative paths within your EJS templates efficiently.
-
-## Summary
-
-PocketPages provides a powerful and intuitive way to manage routing and content delivery in your application:
-
-- **File-Based Routing**: Automatically maps your directory structure to clean URLs.
-- **Custom Configuration**: Allows for flexible preprocessor setup with `+config.js`.
-- **Routing Prioritization**: Ensures your dynamic content and routes are always served over default static files.
-
-By organizing your files and configuring your application correctly, you can build scalable and maintainable applications with PocketPages.

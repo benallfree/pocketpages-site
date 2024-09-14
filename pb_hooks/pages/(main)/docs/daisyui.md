@@ -6,7 +6,7 @@ bunx tailwind init
 ```
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./app/routes/**/*.{ejs,md}'],
+  content: ['./pb_hooks/pages/routes/**/*.{ejs,md}'],
   theme: {
     extend: {},
   },

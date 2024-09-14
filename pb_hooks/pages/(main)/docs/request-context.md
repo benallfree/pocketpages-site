@@ -191,9 +191,3 @@ In this example:
 This `data` property is a powerful tool for injecting dynamic content into your pages, based on the logic and data loaded in your `+load.js` file.
 
 For more information, see [Loading Data](/docs/loading-data)
-
-## Summary
-
-The request context in PocketPages is a powerful tool that provides everything you need to handle and respond to HTTP requests dynamically. With access to the `ctx` object for HTTP interactions, `params` for route and query string data, `dbg` for logging, `requirePrivate` for secure file inclusion, `stringify` for safe serialization, `env` for accessing environment variables, and `context` for passing the context itself, you have all the tools necessary to build robust and flexible applications.
-
-This context is automatically available in every EJS file, enabling you to create dynamic, data-driven pages with ease, while securely managing secrets and responding to user inputs.

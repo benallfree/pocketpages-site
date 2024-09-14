@@ -1,14 +1,24 @@
 # Installation
 
-PocketPages provides many [Starter Kits](/docs/starter-kits) to help you get up and running quickly. The easiest one is called Minimal:
+## Prerequisite: Installing pocodex
+
+PocketPages is a [pocodex](https://pocodex.dev) plugin. pocodex is the open source plugin code exchange community for PocketBase.
 
 ```bash
-bunx pocketpages new myapp --template=minimal
-cd myapp
-bun dev
+bunx pocodex init --trust
+pocketbase pocodex --help
 ```
 
-_Note: I like bun but you can use npm, yarn, or pnpm as well._
+## Installing PocketPages
+
+Once pocodex is installed, installing PocketPages is easy:
+
+```bash
+pocketbase install pocketpages --dir=pb_data
+pocketbase serve --dir=pb_data
+```
+
+_Note: `--dir=pb_data` is necessary to tell PocketBase to use the current directory for data storage._
 
 Browse to `http://localhost:8090` and with any luck at all, you'll see:
 
@@ -17,7 +27,7 @@ Browse to `http://localhost:8090` and with any luck at all, you'll see:
 To start editing, find
 
 ```
-./app/index.ejs
+./pb_hooks/pages/index.ejs
 ```
 
 Changes appear immediately on the next refresh.

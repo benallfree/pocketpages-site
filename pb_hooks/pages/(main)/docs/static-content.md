@@ -16,19 +16,18 @@ Static content refers to files that are served directly to the client without se
 ### Example Directory Structure
 
 ```plaintext
-app/
-  pb_hooks/
-    pages/
-      index.ejs
-      about.ejs
-      styles/
-        main.css
-      scripts/
-        app.js
-      images/
-        logo.png
-      documents/
-        brochure.pdf
+pb_hooks/
+  pages/
+    index.ejs
+    about.ejs
+    styles/
+      main.css
+    scripts/
+      app.js
+    images/
+      logo.png
+    documents/
+      brochure.pdf
 ```
 
 In this example:
@@ -69,7 +68,3 @@ If a directory contains only static files, the entire directory can be served. F
 2. **Use Caching**: Consider setting appropriate cache headers to improve performance for frequently accessed static resources.
 3. **Minify Assets**: Minify CSS and JavaScript files to reduce their size and improve load times.
 4. **Secure Sensitive Files**: Avoid storing sensitive information in static files, as they are publicly accessible.
-
-## Summary
-
-PocketPages automatically treats any file that isn't an EJS template and doesn't begin with a `+` or `_` as a static file. These files are served directly by the underlying Echo framework, which handles content type inference, streaming, and other necessary details. By organizing your static files and using best practices, you can ensure efficient and secure delivery of these resources to your users.

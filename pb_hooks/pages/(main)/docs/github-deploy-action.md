@@ -24,7 +24,7 @@ jobs:
           port: ${{ secrets.ftp_port }}
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          local-dir: ./app/
+          local-dir: ./pb_hooks/pages/
           server-dir: ./makerlist/
           log-level: verbose
           state-name: pb_hooks/.ftp-deploy-sync-state.json

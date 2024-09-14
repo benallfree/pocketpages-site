@@ -75,7 +75,3 @@ Secrets can be stored in a secure collection within PocketBase, with access limi
 4. **Use Encryption**: When storing secrets in the database, ensure they are encrypted both at rest and in transit. This adds an extra layer of security in case the database is compromised.
 
 5. **Access Control**: Limit access to secrets based on roles and permissions. Only authorized users and services should have access to sensitive information.
-
-## Summary
-
-Managing secrets in PocketPages is a crucial aspect of maintaining a secure application. By leveraging environment variables and securely storing secrets in the PocketBase database, you can protect sensitive information from unauthorized access. Whether you're managing API keys, passwords, or other confidential data, following best practices for secret management will help ensure your application's security and integrity.

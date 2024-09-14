@@ -11,15 +11,14 @@ Route parameters allow you to capture specific values from the URL path and use 
 Consider the following directory structure:
 
 ```
-app/
-  pb_hooks/
-    pages/
-      products/
-        [productId]/
-          index.ejs
-        [productId]/
-          reviews/
-            [reviewId].ejs
+pb_hooks/
+  pages/
+    products/
+      [productId]/
+        index.ejs
+      [productId]/
+        reviews/
+          [reviewId].ejs
 ```
 
 ### How Route Parameters Work
@@ -35,12 +34,12 @@ app/
 
 ### Example Routes
 
-- `app/products/[productId]/index.ejs`:
+- `pb_hooks/pages/products/[productId]/index.ejs`:
 
   - URL: `/products/123`
   - Accessible Parameter: `params.productId` = `123`
 
-- `app/products/[productId]/reviews/[reviewId].ejs`:
+- `pb_hooks/pages/products/[productId]/reviews/[reviewId].ejs`:
   - URL: `/products/123/reviews/456`
   - Accessible Parameters: `params.productId` = `123`, `params.reviewId` = `456`
 
@@ -108,7 +107,7 @@ Let's say you have a URL like this:
 /products/123/reviews/456?sort=latest&highlight=true
 ```
 
-In your EJS template located at `app/products/[productId]/reviews/[reviewId].ejs`, you can access and utilize all these parameters:
+In your EJS template located at `pb_hooks/pages/products/[productId]/reviews/[reviewId].ejs`, you can access and utilize all these parameters:
 
 ```ejs
 <h1>Product ID: <%%= params.productId %></h1>
@@ -118,13 +117,3 @@ In your EJS template located at `app/products/[productId]/reviews/[reviewId].ejs
 ```
 
 This setup allows you to create dynamic and responsive pages that change based on the parameters provided in the URL.
-
-## Summary
-
-PocketPages supports powerful and flexible routing with both route parameters and query string parameters:
-
-1. **Route Parameters**: Defined using square brackets `[]` in directory and file names, allowing you to capture values from the URL path.
-2. **Query String Parameters**: Captured from the URL after a `?`, available in `params`, and override route parameters with the same name.
-3. **Access in EJS**: All parameters are available in the `params` object within your EJS templates, enabling dynamic content generation based on the URL.
-
-By combining route and query string parameters, you can create rich, dynamic pages that respond to the specific needs of your users, making your application more flexible and user-friendly.

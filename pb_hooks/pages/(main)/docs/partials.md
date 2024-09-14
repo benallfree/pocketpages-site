@@ -59,17 +59,14 @@ Any EJS file that begins with an underscore (`_`) is considered a private partia
 ### Example Structure:
 
 ```
-app/
-  _header.ejs
-  _footer.ejs
-  index.ejs
-  about/
+pb_hooks/
+  pages/
+    _header.ejs
+    _footer.ejs
     index.ejs
+    about/
+      index.ejs
 ```
 
 - `_header.ejs` and `_footer.ejs` are private partials that can be included in `index.ejs` and `about/index.ejs`.
 - Neither `_header.ejs` nor `_footer.ejs` can be accessed directly via a route.
-
-## Summary
-
-Partials in PocketPages allow you to create reusable EJS templates that can be included in other templates, helping you maintain a modular and organized codebase. Always pass the `context` object to ensure the partial has access to the necessary data, and use the underscore convention (`_filename.ejs`) to mark partials as private, preventing them from being served directly. By following these practices, you can build flexible, maintainable templates that streamline your development process.

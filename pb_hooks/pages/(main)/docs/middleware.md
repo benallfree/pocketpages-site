@@ -9,13 +9,14 @@ PocketPages provides a flexible way to handle request processing and enhance the
 ### Example Directory Structure
 
 ```plaintext
-app/
-  +middleware.js
-  products/
+pb_hooks/
+  pages/
     +middleware.js
-    [productId]/
+    products/
       +middleware.js
-      index.ejs
+      [productId]/
+        +middleware.js
+        index.ejs
 ```
 
 ### How Middleware Execution Works
@@ -147,7 +148,3 @@ module.exports = (context) => {
   return {}
 }
 ```
-
-## Summary
-
-`+middleware.js` files in PocketPages provide a powerful way to handle request processing across different levels of your application. By placing `+middleware.js` files at various levels in your directory structure, you can implement features like authentication guards, header modifications, data preprocessing, and request validation. Middleware functions are executed from the root level down to the current route level, with their results merged into the `data` object. Additionally, you can throw a `BadRequestError` to immediately stop execution and return an error response, allowing for robust and flexible request handling in your PocketPages application.

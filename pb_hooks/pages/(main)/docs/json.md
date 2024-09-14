@@ -40,12 +40,11 @@ To create a JSON response, your `.ejs` template should output a valid JSON strin
 Given the following template structure:
 
 ```
-app/
-  pb_hooks/
-    pages/
-      api/
-        product/
-          [productId].ejs
+pb_hooks/
+  pages/
+    api/
+      product/
+        [productId].ejs
 ```
 
 A request to `/api/product/123` might return the following JSON response:
@@ -72,7 +71,3 @@ A request to `/api/product/123` might return the following JSON response:
 - **Ensure Valid JSON**: Always make sure that the content returned by your `.ejs` templates is valid JSON. If the content cannot be parsed as JSON, PocketPages will not serve it as a JSON response.
 - **Use for APIs**: Leverage this feature to build RESTful APIs where the same route structure can return either HTML or JSON, depending on the request and the content generated.
 - **Separate Concerns**: For clarity and maintainability, consider organizing your API-related templates in a dedicated folder structure, such as `pages/api/`, to distinguish them from your regular HTML templates.
-
-## Summary
-
-PocketPages makes it easy to create RESTful APIs by serving JSON responses directly from `.ejs` templates. When your `.ejs` file returns content that parses as valid JSON, PocketPages automatically detects this and serves it with the appropriate headers. This feature allows you to build dynamic APIs using the same templating system you use for your web pages, streamlining development and enabling you to manage both HTML and JSON responses efficiently.

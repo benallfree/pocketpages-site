@@ -11,13 +11,14 @@ Any file or directory that begins with an underscore (`_`) is considered private
 #### Example Directory Structure
 
 ```plaintext
-app/
-  _private/
-    config.js
-  _helpers/
-    _authCheck.ejs
-  index.ejs
-  about.ejs
+pb_hooks/
+  pages/
+    _private/
+      config.js
+    _helpers/
+      _authCheck.ejs
+    index.ejs
+    about.ejs
 ```
 
 In this example:
@@ -67,7 +68,3 @@ Store environment-specific configuration files in the root `_private` directory 
 ### 3. Secure Data Processing
 
 Use private scripts or partials stored in the root `_private` directory to handle sensitive data processing, ensuring they are only accessible within your server-side code.
-
-## Summary
-
-In PocketPages, you can enhance the security of your application by using private files and directories. Any file or directory beginning with an underscore (`_`) is considered private and will not be routed, while those beginning with a plus sign (`+`) are reserved for special processing and are also not routable. The `requirePrivate` function allows you to securely load files from the root `_private` directory within your EJS templates, helping you manage server-side logic and configurations securely and efficiently, while avoiding relative path issues. Always ensure that secrets are managed properly and never stored in files that could be committed to a repository.
