@@ -4,20 +4,19 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"bun:dev:*\"",
-    "start": "NODE_ENV=production bun run serve",
-    "serve": "pocketbase serve --hooksDir=pb_hooks --migrationsDir=pb_migrations --dir=pb_data",
+    "serve": "pocketbase serve --dir=pb_data",
     "dev:serve": "bun run serve --dev",
     "dev:css": "tailwindcss -i ./pb_hooks/pages/assets/app.tailwind.css -o ./pb_hooks/pages/assets/app.css --watch"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.5.8",
-    "@tailwindcss/typography": "^0.5.14",
-    "concurrently": "^8.2.2",
+    "@tailwindcss/typography": "^0.5.15",
+    "concurrently": "^9.0.1",
     "daisyui": "^4.12.10",
     "gobot-pocketbase": "^0.22.20-14",
     "postcss-import": "^16.1.0",
     "prettier": "^3.3.3",
-    "tailwindcss": "^3.4.10",
+    "tailwindcss": "^3.4.11",
     "typescript": "^5.6.2"
   },
   "module": "index.ts",
@@ -34,6 +33,6 @@
   "dependencies": {
     "pocketbase-jsvm": "^0.22.20001",
     "pocketpages": "^0.5.0",
-    "pocodex": "^0.0.1"
+    "pocodex": "^0.0.2"
   }
 }
