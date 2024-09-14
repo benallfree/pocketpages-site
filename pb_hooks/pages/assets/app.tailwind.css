@@ -16,8 +16,10 @@
       @apply list-none;
       @apply mt-0;
     }
-    li {
+    li,
+    li a {
       @apply m-0 p-0;
+      @apply text-sm;
     }
   }
   pre {
@@ -36,6 +38,9 @@
   /* Styles for non-touch devices */
 }
 
+div.code-toolbar {
+  @apply w-full;
+}
 div.code-toolbar > .toolbar > .toolbar-item > a,
 div.code-toolbar > .toolbar > .toolbar-item > button,
 div.code-toolbar > .toolbar > .toolbar-item > span {

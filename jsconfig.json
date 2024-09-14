@@ -5,5 +5,5 @@
     "types": ["pocketpages", "pocketbase-jsvm"],
     "moduleResolution": "node"
   },
-  "include": ["./pb_hooks/**/*.ts"]
+  "include": ["./pb_hooks/**/*.js"]
 }
