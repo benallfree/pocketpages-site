@@ -13,7 +13,7 @@ Write your web apps like old-school PHP:
 
 ### >>> [Official docs](https://pocketpages.dev/docs) <<<
 
-## Why dod I make this?
+## Why did I make this?
 
 - Because when I have a new app idea, I want to make contact with the real world as soon as possible
 - Because I want to start simply and grow as needed, in any direction I decide
